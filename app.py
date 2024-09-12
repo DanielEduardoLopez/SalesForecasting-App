@@ -221,7 +221,7 @@ if page == "Homepage":
         html_contact = '<a href="https://www.linkedin.com/in/daniel-eduardo-lopez">LinkedIn</a> | <a href="https://github.com/DanielEduardoLopez">GitHub</a>'
         st.caption(html_contact, unsafe_allow_html=True)
 
-    st.markdown("August 26, 2024")
+    st.markdown("September 11, 2024")
     st.caption("5 min read")
     st.image("sales-figures-1473495.jpg")
     html_picture = '<p style="font-size: 12px" align="center">Image Credit: <a href="https://www.freeimages.com/es/photo/sales-figures-1473495/">wagg66</a> from <a href="https://www.freeimages.com/">FreeImages</a>.</p>'
@@ -268,7 +268,7 @@ if page == "Homepage":
     with bcol2:
         if st.button('Go to Forecast Page'):
             st.session_state["app_page"] = "Forecast"
-            st.experimental_rerun()        
+            st.rerun()        
 
     st.markdown("")
 
@@ -290,7 +290,7 @@ elif page == "Forecast":
     with bcol2:
         if st.button('Go to Homepage'):
             st.session_state["app_page"] = "Homepage"
-            st.experimental_rerun()
+            st.rerun()
     
     # Initial Forecast
     historical = get_hist_data()
@@ -325,7 +325,7 @@ elif page == "Forecast":
           .iloc[:data_points]   
           )   
 
-    edited_df = st.experimental_data_editor(df, disabled=False)
+    edited_df = st.data_editor(df, disabled=False)
     new_observations = process_df(edited_df) 
 
     st.markdown('Finally, select the number of periods (quarters) you would like to forecast:')
